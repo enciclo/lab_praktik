@@ -2,6 +2,31 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <malloc.h>
+char* Convert3To10NumberSystem(int* number)
+{
+    //Строка с результатом
+    char *ResultStr;    
+    ResultStr = (char *)malloc(50 * sizeof(char));    
+    //В случае если число положительное 
+    if(*number>=0)
+    {           
+        //Разряд числа
+        int digit = 0;
+        int decimal_int = 0;
+        printf("In the decimal (10) number system, the number %d = ",*number);        
+        printf ("\n %d * 3^%d ",(*number%10),digit++);
+        decimal_int = *number%10;        
+        while((*number = (*number/10)))
+        {    
+            printf (" + %d * 3^%d",(*number%10),digit);
+            decimal_int+=(*number%10)*pow((double)3,(double)digit++);
+        }
+        printf(" = %d!",decimal_int);
+    }    
+    ResultStr = "\nPositive Numbers Output_Test (3 -> 10)\n";
+    return ResultStr;
+}
+//Функция перевода десятичного целого числа в систему счисления с основанием "3"
 //Функция перевода десятичного целого числа в систему счисления с основанием "3"
 char* Convert10To3NumberSystem(int* number)
 {
